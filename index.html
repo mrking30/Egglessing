@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+        <style>
+                /* Center the button */
+                .centered {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 100vh;
+                        flex-direction: column;
+                }
+
+                /* Style the button with a blue color */
+                .start-button {
+                        background-color: transparent;
+                        color: #fff;
+                        border: solid 4px white;
+                        padding: 10px 20px;
+                        font-size: 48px;
+                        cursor: pointer;
+                        width: 200px;
+                        font-family: monospace;
+                        margin-top: 20px;
+                }
+
+                h1 {
+                              font-size: 20px;
+      color: white;
+      font-family: monospace;
+    }img{width:260px}
+  </style>
+</head>
+<body style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrv42UUqfV6mMcZjr9EBXl-AS4ABk5YG-WYA&usqp=CAU');">
+  <div class="centered"><img src="egge.png"></img>
+    <h1>JUST WATCH EGG FOR 3 HOURS!</h1>
+    <button class="start-button" onclick="showTermsAndConditions()">PLAY</button>
+  </div>
+
+  <script>
+    function showTermsAndConditions() {
+      // Stylish terms and conditions alert
+      let termsAndConditionsAlert = document.createElement("div");
+      termsAndConditionsAlert.innerHTML = `
+        <div style="background-color: rgba(0, 0, 0, 0.8); position: fixed; top: 0; bottom: 0; left: 0; right: 0; display: flex; justify-content: center; align-items: ; z-index: 999;">
+          <div style="background-color: #fff; padding: 20px; border-radius: 10px; width:270px;height:610px;overflow-y:auto;margin-top:10px">
+            <h2>Terms and Conditions</h2>
+            <p># EggEgg Game Terms and Conditions
+
+By playing the EggEgg game, you agree to the following terms and conditions:
+        <br><br>
+1. **Disclaimer:** We are not responsible for any damage to your phone or device while playing EggEgg. It is your responsibility to ensure the safety of your device.
+<br><br>
+2. **Mental and Physical Health:** EggEgg is designed for entertainment purposes only. We are not responsible for any mental or physical damage that may result from playing the game. Please ensure that you take breaks and play responsibly.
+<br><br>
+3. **Entertainment Only:** EggEgg is intended solely for entertainment purposes. It is not a professional or therapeutic application. Please do not rely on it for any other purpose.
+<br><br>
+4. **User Conduct:** You agree to play EggEgg responsibly and in accordance with local laws and regulations. Do not engage in any behavior that may harm others or disrupt the gaming experience for other players.
+<br><br>
+5. **Age Restriction:** EggEgg is intended for players of a certain age. By playing the game, you confirm that you are of the required age or have obtained parental or legal guardian consent.
+<br><br>
+6. **Updates and Changes:** We may update or modify the game and its terms and conditions at any time. It is your responsibility to stay informed about any changes.
+<br><br>
+7. **Termination:** We reserve the right to terminate your access to EggEgg if you violate these terms and conditions.
+<br><br>
+8. **Privacy:** Please review our privacy policy to understand how we collect, use, and protect your data.
+<br><br>
+By playing EggEgg, you acknowledge that you have read, understood, and agreed to these terms and conditions. If you do not agree with these terms, please refrain from playing the game.
+<br><br>
+For any questions or concerns, please contact our support team at [support@email.com](mailto:support@email.com).
+
+Enjoy EggEgg responsibly and have fun!
+</p>
+            <button onclick="closeTermsAndConditions()" style="background-color: #0a68ff;
+            color: #fff;
+            border: solid ;
+            padding: 10px 20px;
+            font-size: 17px;
+            cursor: pointer;
+            width: 100px;
+            font-family: monospace;border-radius:20px;
+            margin-top: 0px;">Accept</button>
+          </div>
+        </div>
+      `;
+
+      document.body.appendChild(termsAndConditionsAlert);
+    }
+
+    function closeTermsAndConditions() {
+      document.querySelector("div[style*='z-index: 999;']").remove();
+      // Redirect to 'y.html' when the user accepts the terms.
+      location.href = 'y.html';
+    }
+  </script>
+</body>
+</html>

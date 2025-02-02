@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<head>
+<style>
+  /* Center the image */
+  .centered-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  /* Style for the timer */
+  #timer {
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 35px;
+    color: white;font-family: monospace
+  }
+
+  /* Shake animation */
+  @keyframes shake {
+    0% { transform: translate(0); }
+    25% { transform: translate(-5px, 0); }
+    50% { transform: translate(5px, 0); }
+    75% { transform: translate(-5px, 0); }
+    100% { transform: translate(5px, 0); }
+  }
+  .eg{width: 100px;top: 10px; height:40px}
+  body {
+    font-family: Arial, sans-serif;
+}
+
+.menu-toggle {
+    cursor: pointer;
+    padding: 10px;
+    background-color: ;
+    color: #fff;
+    text-align: right;top: 0px;
+            right: 10px;position: absolute;border-radius: 50%;
+}
+
+.icon {
+    font-size: 20px;border-radius: 50%;
+}
+
+.menu {
+    display: none;
+    position: absolute;
+            top: 10px;
+            right: 40px;
+            border: solid white;border-radius: 10px;background-color: #2483ff;
+            color: #fff;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;border-radius: 50%;
+}
+
+.menu li {
+    padding: 10px;
+  
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;border-radius: 23%;
+}
+
+</style>
+</head>
+<body style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrv42UUqfV6mMcZjr9EBXl-AS4ABk5YG-WYA&usqp=CAU');" onclick="enterFullscreen()">
+<img src="egge.png" class="eg"></img><div class="menu-toggle" onclick="toggleMenu()">
+        <div class="icon">&#9776;</div>
+    </div>
+    <div class="menu">
+        <!-- Your menu items go here -->
+        <ul>
+            <li><a href="#"><b>EGGS</b> #comming soon</a></li>
+            <li><a href="#"><b>BACKGROUND</b> #comming soon</a></li>
+            <li onclick="toggleBackgroundMusic()"><a href="#"><b>MUSIC PLAY/STOP</b></a></li>
+        </ul>
+    </div>
+<div class="centered-image">
+  <img id="image" src="egg.png" alt="Image 1" onclick="enterFullscreen()">
+ <b> <div id="timer"></div></b>
+</div>
+
+<script>
+  // Function to change the image every 3 hours
+  setTimeout(function() {
+    document.getElementById("image").src = "eggg.png";
+  }, 3 * 60 * 60 * 1000);
+
+  // Function to shake the image every 30 seconds
+  setInterval(function() {
+    const imageElement = document.getElementById("image");
+    imageElement.style.animation = "shake 0.5s";
+    setTimeout(function() {
+      imageElement.style.animation = "none";
+    }, 500);
+  }, 20* 1000);
+
+  // Function to update the timer every second
+  function updateTimer() {
+    const timerElement = document.getElementById("timer");
+    let time = 3 * 60 * 60;
+    setInterval(function() {
+      const hours = Math.floor(time / 3600);
+      const minutes = Math.floor((time % 3600) / 60);
+      const seconds = time % 60;
+      timerElement.textContent = `${hours}:${minutes}:${seconds}`;
+      time--;
+    }, 1000);
+  }
+  updateTimer();
+  // Function to enter fullscreen mode
+function enterFullscreen() {
+  const element = document.documentElement; // The whole page
+  if (element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if (element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if (element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if (element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
+
+  // Start the 3-hour timer when entering fullscreen
+  setTimeout(function() {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    }
+  }, 3 * 60 * 60 * 1000);
+   
+}
+function toggleMenu() {
+    var menu = document.querySelector('.menu');
+    if (menu.style.display === 'block') {
+        menu.style.display = 'none';
+    } else {
+        menu.style.display = 'block';
+    }
+}
+var audio;
+
+function toggleBackgroundMusic() {
+        if (!audio) {
+                audio = new Audio("b.mp3");
+                audio.loop = true;
+                audio.play();
+        } else {
+                audio.pause();
+                audio = null;
+        }
+}
+</script>
+
+</body>
+  </html>
+  
